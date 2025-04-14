@@ -1,114 +1,559 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV - Elias S. S. Vallejos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-bg: #f8f9fa;
+      --dark-bg: #2c3e50;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: #333;
+    }
+    
+    .cv-container {
+      max-width: 1200px;
+      background-color: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    
+    .sidebar {
+      background-color: var(--primary-color);
+      color: white;
+      height: 100%;
+      padding: 2rem;
+    }
+    
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin: 0 auto 2rem;
+      display: block;
+    }
+    
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+    
+    .contact-info i {
+      width: 25px;
+      color: var(--secondary-color);
+    }
+    
+    .sidebar h3 {
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+    
+    .language-dot {
+      height: 10px;
+      width: 10px;
+      margin-right: 5px;
+      border-radius: 50%;
+      display: inline-block;
+      background-color: var(--secondary-color);
+    }
+    
+    .skill-bar {
+      height: 6px;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin-bottom: 15px;
+      border-radius: 5px;
+      position: relative;
+    }
+    
+    .skill-fill {
+      background-color: var(--secondary-color);
+      height: 100%;
+      border-radius: 5px;
+    }
+    
+    .main-content {
+      padding: 2rem;
+    }
+    
+    .section-title {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .job-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .job-item:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      height: 100%;
+      width: 2px;
+      background-color: var(--secondary-color);
+    }
+    
+    .job-item:last-child:before {
+      height: 50%;
+    }
+    
+    .job-item h5 {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    
+    .job-item p {
+      margin-bottom: 0.3rem;
+      color: #666;
+    }
+    
+    .job-item .date {
+      color: var(--secondary-color);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    
+    .lang-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+    
+    .education-item {
+      margin-bottom: 1rem;
+    }
+    
+    .badge-custom {
+      background-color: var(--secondary-color);
+      color: white;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+    }
+    
+    .top-border-rounded {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    
+    #language-toggle {
+      transition: all 0.3s ease;
+    }
+    
+    .content-pt, .content-en {
+      display: none;
+    }
+    
+    .content-active {
+      display: block;
+    }
+    
+    .soft-skill-item {
+      margin-bottom: 1rem;
+    }
+    
+    .soft-skill-name {
+      font-weight: 600;
+    }
+    
+    .projects-section {
+      padding: 1rem;
+      border-left: 3px solid var(--secondary-color);
+      background-color: rgba(52, 152, 219, 0.05);
+      border-radius: 0 5px 5px 0;
+    }
+  </style>
 </head>
-<body class="bg-light">
-  <div class="container my-5 p-4 bg-white shadow rounded">
-    <header class="mb-4">
-      <h1 class="fw-bold">Elias S. S. Vallejos</h1>
-      <h5 class="text-muted">Software Developer</h5>
-      <p><strong>Location:</strong> Porto, Portugal</p>
-      <p><strong>Email:</strong> eliasssv@hotmail.com</p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/elias-s-s-vallejos/">linkedin.com/in/elias-s-s-vallejos</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/eliasssv">github.com/eliasssv</a></p>
-    </header>
+<body>
+  <button id="language-toggle" class="lang-btn">
+    <span class="lang-text">EN</span>
+    <i class="fas fa-globe ms-2"></i>
+  </button>
 
-    <section class="mb-4">
-      <h3>Profile</h3>
-      <p>I'm working with technology since I was 14. My main skills are Java (back-end), Angular/React (front-end) and Relational Databases. I’m currently working as Fullstack Developer developing in Java and React. I’m expert at IT solving problems, love challenges and always keep updated. Working with software development since 2011.</p>
-    </section>
-
-    <section class="mb-4">
-      <h3>Employment History</h3>
-      <div>
-        <h5>Celfocus (Jul 2022 – Present)</h5>
-        <p>Software Developer Senior – Fullstack</p>
-        <ul>
-          <li>Internalized by Celfocus after 1 year, in the same project below.</li>
-          <li>Career started as Senior Fullstack Developer Java.</li>
-        </ul>
+  <div class="container my-5 cv-container">
+    <div class="row g-0">
+      <!-- Sidebar -->
+      <div class="col-lg-4 sidebar">
+        <img src="/api/placeholder/150/150" alt="Profile" class="profile-image">
+        
+        <h2 class="text-center mb-4">Elias S. S. Vallejos</h2>
+        <p class="text-center mb-4 content-pt content-active"><span class="badge bg-light text-dark">Desenvolvedor de Software</span></p>
+        <p class="text-center mb-4 content-en"><span class="badge bg-light text-dark">Software Developer</span></p>
+        
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Porto, Portugal</p>
+          <p><i class="fas fa-envelope"></i> eliasssv@hotmail.com</p>
+          <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/elias-s-s-vallejos/" class="text-white">linkedin.com/in/elias-s-s-vallejos</a></p>
+          <p><i class="fab fa-github"></i> <a href="https://github.com/eliasssv" class="text-white">github.com/eliasssv</a></p>
+        </div>
+        
+        <h3 class="content-pt content-active">Idiomas</h3>
+        <h3 class="content-en">Languages</h3>
+        
+        <div class="mb-3">
+          <p class="mb-1">
+            <span class="content-pt content-active">Português</span>
+            <span class="content-en">Portuguese</span>
+            <span class="float-end">
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+            </span>
+          </p>
+          <p class="mb-1">
+            <span class="content-pt content-active">Espanhol</span>
+            <span class="content-en">Spanish</span>
+            <span class="float-end">
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+            </span>
+          </p>
+          <p class="mb-1">
+            <span class="content-pt content-active">Inglês</span>
+            <span class="content-en">English</span>
+            <span class="float-end">
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot"></span>
+              <span class="language-dot" style="background-color: rgba(255,255,255,0.2);"></span>
+            </span>
+          </p>
+        </div>
+        
+        <h3 class="content-pt content-active">Habilidades Técnicas</h3>
+        <h3 class="content-en">Technical Skills</h3>
+        
+        <div class="mb-3">
+          <p class="mb-1">Java</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 95%;"></div>
+          </div>
+          
+          <p class="mb-1">React</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 90%;"></div>
+          </div>
+          
+          <p class="mb-1">Angular</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 85%;"></div>
+          </div>
+          
+          <p class="mb-1">SQL</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 90%;"></div>
+          </div>
+          
+          <p class="mb-1">JavaScript/TypeScript</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 85%;"></div>
+          </div>
+          
+          <p class="mb-1">Spring Boot</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 80%;"></div>
+          </div>
+          
+          <p class="mb-1">Python</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 70%;"></div>
+          </div>
+        </div>
+        
+        <h3 class="content-pt content-active">Certificações</h3>
+        <h3 class="content-en">Certifications</h3>
+        
+        <div class="mb-3">
+          <p><i class="fas fa-certificate text-warning me-2"></i> OCP – Oracle Certified Professional (2021)</p>
+          <p><i class="fas fa-certificate text-warning me-2"></i> AWS Certified Solutions Architect (2023)</p>
+        </div>
       </div>
-      <div>
-        <h5>Multivision (Jun 2021 – Jul 2022)</h5>
-        <p>Software Developer Senior – Fullstack</p>
-        <ul>
-          <li>Allocated at CELFOCUS</li>
-          <li>Development for Vodafone (Internet In The Car project)</li>
-        </ul>
+      
+      <!-- Main Content -->
+      <div class="col-lg-8 main-content">
+        <section class="mb-4">
+          <h3 class="section-title content-pt content-active">Perfil</h3>
+          <h3 class="section-title content-en">Profile</h3>
+          
+          <p class="content-pt content-active">
+            Trabalho com tecnologia desde os 14 anos. Minhas principais habilidades são Java (back-end), Angular/React (front-end) e Bancos de Dados Relacionais. Atualmente trabalho como Desenvolvedor Fullstack em Java e React. Sou especialista em resolver problemas de TI, adoro desafios e estou sempre me atualizando. Trabalho com desenvolvimento de software desde 2011.
+          </p>
+          
+          <p class="content-en">
+            I've been working with technology since I was 14. My main skills are Java (back-end), Angular/React (front-end) and Relational Databases. I'm currently working as Fullstack Developer developing in Java and React. I'm expert at IT solving problems, love challenges and always keep updated. Working with software development since 2011.
+          </p>
+        </section>
+        
+        <section class="mb-4">
+          <h3 class="section-title content-pt content-active">Experiência Profissional</h3>
+          <h3 class="section-title content-en">Employment History</h3>
+          
+          <div class="job-item">
+            <h5>Celfocus</h5>
+            <p class="date">Jul 2022 – Presente</p>
+            <p class="content-pt content-active">Desenvolvedor de Software Senior – Fullstack</p>
+            <p class="content-en">Software Developer Senior – Fullstack</p>
+            <ul class="content-pt content-active">
+              <li>Internalizado pela Celfocus após 1 ano, no mesmo projeto abaixo.</li>
+              <li>Carreira iniciada como Desenvolvedor Senior Fullstack Java.</li>
+            </ul>
+            <ul class="content-en">
+              <li>Internalized by Celfocus after 1 year, in the same project below.</li>
+              <li>Career started as Senior Fullstack Developer Java.</li>
+            </ul>
+          </div>
+          
+          <div class="job-item">
+            <h5>Multivision</h5>
+            <p class="date">Jun 2021 – Jul 2022</p>
+            <p class="content-pt content-active">Desenvolvedor de Software Senior – Fullstack</p>
+            <p class="content-en">Software Developer Senior – Fullstack</p>
+            <ul class="content-pt content-active">
+              <li>Alocado na CELFOCUS</li>
+              <li>Desenvolvimento para Vodafone (projeto Internet In The Car)</li>
+            </ul>
+            <ul class="content-en">
+              <li>Allocated at CELFOCUS</li>
+              <li>Development for Vodafone (Internet In The Car project)</li>
+            </ul>
+          </div>
+          
+          <div class="job-item">
+            <h5>Sisteplan</h5>
+            <p class="date">Mar 2021 – Jun 2021</p>
+            <p class="content-pt content-active">Desenvolvedor de Software – Fullstack</p>
+            <p class="content-en">Software Developer – Fullstack</p>
+            <ul class="content-pt content-active">
+              <li>Desenvolvimento para Softwares de Gestão em Nuvem</li>
+            </ul>
+            <ul class="content-en">
+              <li>Development for Cloud Management Softwares</li>
+            </ul>
+          </div>
+          
+          <div class="job-item">
+            <h5>NEOBPO</h5>
+            <p class="date">Jan 2021 – Mar 2021</p>
+            <p class="content-pt content-active">Desenvolvedor de Software – Fullstack</p>
+            <p class="content-en">Software Developer – Fullstack</p>
+            <ul class="content-pt content-active">
+              <li>Desenvolvimento para sistemas de gestão eletrônica de documentos</li>
+            </ul>
+            <ul class="content-en">
+              <li>Development for electronic document management systems</li>
+            </ul>
+          </div>
+          
+          <div class="job-item">
+            <h5>Celepar</h5>
+            <p class="date">Jul 2018 – Dec 2020</p>
+            <p class="content-pt content-active">Desenvolvedor de Software – Fullstack</p>
+            <p class="content-en">Software Developer – Fullstack</p>
+            <ul class="content-pt content-active">
+              <li>Sistemas de Saúde Pública e Corpo de Bombeiros</li>
+            </ul>
+            <ul class="content-en">
+              <li>Public Health and Fire Department systems</li>
+            </ul>
+          </div>
+          
+          <div class="job-item">
+            <h5>Viasoft</h5>
+            <p class="date">Jun 2011 – Jun 2018</p>
+            <p class="content-pt content-active">Coordenador de Implantação</p>
+            <p class="content-en">Deployment Coordinator</p>
+            <ul class="content-pt content-active">
+              <li>Customizações de ERP, BI, integrações de CRM e Plugins Java</li>
+            </ul>
+            <ul class="content-en">
+              <li>ERP Customizations, BI, CRM integrations, and Java Plugins</li>
+            </ul>
+          </div>
+        </section>
+        
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <h3 class="section-title content-pt content-active">Educação</h3>
+            <h3 class="section-title content-en">Education</h3>
+            
+            <div class="education-item">
+              <h5 class="content-pt content-active">Pós-Graduação em Inteligência Artificial Aplicada</h5>
+              <h5 class="content-en">Post Graduation in Applied Artificial Intelligence</h5>
+              <p>UFPR (2021–2022)</p>
+            </div>
+            
+            <div class="education-item">
+              <h5 class="content-pt content-active">Pós-Graduação em Gestão de Banco de Dados</h5>
+              <h5 class="content-en">Post Graduation in Database Management</h5>
+              <p>PUC-PR (2016–2018)</p>
+            </div>
+            
+            <div class="education-item">
+              <h5 class="content-pt content-active">Bacharelado em Sistemas de Informação</h5>
+              <h5 class="content-en">Bachelor of Information Systems</h5>
+              <p>FESP-PR (2011–2014)</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <h3 class="section-title content-pt content-active">Habilidades Interpessoais</h3>
+            <h3 class="section-title content-en">Soft Skills</h3>
+            
+            <div class="soft-skill-item">
+              <span class="soft-skill-name content-pt content-active">Melhores:</span>
+              <span class="soft-skill-name content-en">Best:</span>
+              <p class="content-pt content-active">Comunicação, Flexibilidade, Agilidade de Aprendizado, Entrega de Resultados, Resolução de Problemas</p>
+              <p class="content-en">Communication, Flexibility, Learning Agility, Deliverability, Problem Solver</p>
+            </div>
+            
+            <div class="soft-skill-item">
+              <span class="soft-skill-name content-pt content-active">A Melhorar:</span>
+              <span class="soft-skill-name content-en">To Improve:</span>
+              <p class="content-pt content-active">Foco, Liderança, Controle de Tempo</p>
+              <p class="content-en">Focus, Leadership, Time Control</p>
+            </div>
+          </div>
+        </div>
+        
+        <section class="mb-4">
+          <h3 class="section-title content-pt content-active">Outros Projetos</h3>
+          <h3 class="section-title content-en">Other Projects</h3>
+          
+          <div class="projects-section">
+            <h5>CANDS Data Integrator</h5>
+            <p class="content-pt content-active">Integrador universal para conectar diversos sistemas via microsserviços configuráveis.</p>
+            <p class="content-en">Universal integrator to connect various systems via custom-configurable microservices.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h3 class="section-title content-pt content-active">Tecnologias</h3>
+          <h3 class="section-title content-en">Technologies</h3>
+          
+          <div class="mb-3">
+            <h6 class="content-pt content-active">Bancos de Dados:</h6>
+            <h6 class="content-en">Databases:</h6>
+            <div>
+              <span class="badge badge-custom">PostgreSQL</span>
+              <span class="badge badge-custom">Oracle</span>
+              <span class="badge badge-custom">Firebird</span>
+              <span class="badge badge-custom">SQL Server</span>
+              <span class="badge badge-custom">MySQL</span>
+              <span class="badge badge-custom">MongoDB</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="content-pt content-active">Ferramentas:</h6>
+            <h6 class="content-en">Tools:</h6>
+            <div>
+              <span class="badge badge-custom">Git</span>
+              <span class="badge badge-custom">Jenkins</span>
+              <span class="badge badge-custom">Docker</span>
+              <span class="badge badge-custom">Jira</span>
+              <span class="badge badge-custom">VSCode</span>
+              <span class="badge badge-custom">IntelliJ</span>
+              <span class="badge badge-custom">Excel</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="content-pt content-active">Gestão de Projetos:</h6>
+            <h6 class="content-en">Project Management:</h6>
+            <div>
+              <span class="badge badge-custom">Scrum</span>
+              <span class="badge badge-custom">BDD</span>
+              <span class="badge badge-custom">Kanban</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="content-pt content-active">Padrões:</h6>
+            <h6 class="content-en">Patterns:</h6>
+            <div>
+              <span class="badge badge-custom">REST</span>
+              <span class="badge badge-custom">MVC</span>
+              <span class="badge badge-custom">JSON</span>
+              <span class="badge badge-custom">XML</span>
+            </div>
+          </div>
+        </section>
       </div>
-      <div>
-        <h5>Sisteplan (Mar 2021 – Jun 2021)</h5>
-        <p>Software Developer – Fullstack</p>
-        <ul>
-          <li>Development for Cloud Management Softwares</li>
-        </ul>
-      </div>
-      <div>
-        <h5>NEOBPO (Jan 2021 – Mar 2021)</h5>
-        <p>Software Developer – Fullstack</p>
-        <ul>
-          <li>Development for electronic document management systems</li>
-        </ul>
-      </div>
-      <div>
-        <h5>Celepar (Jul 2018 – Dec 2020)</h5>
-        <p>Software Developer – Fullstack</p>
-        <ul>
-          <li>Public Health and Fire Department systems</li>
-        </ul>
-      </div>
-      <div>
-        <h5>Viasoft (Jun 2011 – Jun 2018)</h5>
-        <p>Deployment Coordinator</p>
-        <ul>
-          <li>ERP Customizations, BI, CRM integrations, and Java Plugins</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="mb-4">
-      <h3>Other Projects</h3>
-      <p><strong>CANDS Data Integrator:</strong> Universal integrator to connect various systems via custom-configurable microservices.</p>
-    </section>
-
-    <section class="mb-4">
-      <h3>Courses</h3>
-      <ul>
-        <li>OCP – Oracle Certified Professional (Apr 2021)</li>
-        <li>AWS Certified Solutions Architect – Associate (Dec 2023)</li>
-        <li>Learning Python – Olist and CINQ (Nov 2019 – Apr 2020)</li>
-      </ul>
-    </section>
-
-    <section class="mb-4">
-      <h3>Soft Skills</h3>
-      <p><strong>Best:</strong> Communication, Flexibility, Learning Agility, Deliverability, Problem Solver</p>
-      <p><strong>To Improve:</strong> Focus, Leadership, Time Control</p>
-    </section>
-
-    <section class="mb-4">
-      <h3>Education</h3>
-      <ul>
-        <li>Post Graduation in Applied Artificial Intelligence, UFPR (2021–2022)</li>
-        <li>Post Graduation in Database Management, PUC-PR (2016–2018)</li>
-        <li>Bachelor of Information Systems, FESP-PR (2011–2014)</li>
-      </ul>
-    </section>
-
-    <section class="mb-4">
-      <h3>Skills</h3>
-      <p><strong>Languages:</strong> Portuguese (5), Spanish (5), English (4)</p>
-      <p><strong>Programming:</strong> Java, Javascript, Typescript, PL/SQL, Python, NodeJS, etc.</p>
-      <p><strong>Frameworks:</strong> Angular, React, Springboot, Hibernate, JSP, JSF, etc.</p>
-      <p><strong>Databases:</strong> PostgreSQL, Oracle, Firebird, SQL Server, MySQL, MongoDB</p>
-      <p><strong>Tools:</strong> Git, Jenkins, Docker, Jira, VSCode, IntelliJ, Excel</p>
-      <p><strong>Project Management:</strong> Scrum, BDD, Kanban</p>
-      <p><strong>Patterns:</strong> REST, MVC, JSON, XML</p>
-    </section>
+    </div>
   </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const languageToggle = document.getElementById('language-toggle');
+      const langText = document.querySelector('.lang-text');
+      const contentPt = document.querySelectorAll('.content-pt');
+      const contentEn = document.querySelectorAll('.content-en');
+      
+      let currentLang = 'pt';
+      
+      languageToggle.addEventListener('click', function() {
+        if (currentLang === 'pt') {
+          // Switch to English
+          contentPt.forEach(el => {
+            el.classList.remove('content-active');
+          });
+          contentEn.forEach(el => {
+            el.classList.add('content-active');
+          });
+          langText.textContent = 'PT';
+          currentLang = 'en';
+        } else {
+          // Switch to Portuguese
+          contentEn.forEach(el => {
+            el.classList.remove('content-active');
+          });
+          contentPt.forEach(el => {
+            el.classList.add('content-active');
+          });
+          langText.textContent = 'EN';
+          currentLang = 'pt';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
